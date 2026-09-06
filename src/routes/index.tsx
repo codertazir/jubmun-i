@@ -11,17 +11,17 @@ import speakerImg from "@/assets/speaker.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DHAMUN XX — Countdown to the 20th Chapter" },
+      { title: "JUBMUN I — Countdown to the First Chapter" },
       {
         name: "description",
         content:
-          "DHAMUN XX returns February 13-14. Join the 20th chapter of Dhahran Ahliyya Model United Nations — debate, diplomacy and delegate resources.",
+          "JUBMUN I takes place November 26 and 27. Join the first chapter of Jubail Model United Nations — debate, diplomacy and delegate resources.",
       },
-      { property: "og:title", content: "DHAMUN XX — Countdown to the 20th Chapter" },
+      { property: "og:title", content: "JUBMUN I — Countdown to the First Chapter" },
       {
         property: "og:description",
         content:
-          "DHAMUN XX returns February 13-14. Join the 20th chapter of Dhahran Ahliyya Model United Nations.",
+          "JUBMUN I takes place November 26 and 27. Join the first chapter of Jubail Model United Nations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -134,17 +134,17 @@ function Intro() {
           <div className="mt-6 space-y-5 text-sm leading-relaxed text-secondary/85">
             <p>
               They say the future belongs to those who prepare for it today, and that&apos;s
-              exactly what we&apos;re doing at DHAMUN. What began 20 years ago as a small group of
-              aspiring debaters has grown into Saudi Arabia&apos;s largest conference of nations
-              and diplomacy.
+              exactly what we&apos;re doing at JUBMUN. What begins now as a group of aspiring
+              debaters is the first chapter of a conference of nations and diplomacy built by
+              students, for students.
             </p>
             <p>
-              DHAMUN continues to be a launchpad for bold ideas, a training ground for future
+              JUBMUN sets out to be a launchpad for bold ideas, a training ground for future
               leaders, and a space where students like us tackle the world&apos;s biggest
               questions head-on.
             </p>
             <p>
-              Guided by a commitment to education, collaboration and action, DHAMUN remains
+              Guided by a commitment to education, collaboration and action, JUBMUN remains
               steadfast in its pursuit of inspiring meaningful change. We invite you to join us,
               not just to participate, but to inspire, to be challenged, and to leave knowing
               you&apos;ve made a difference.
@@ -226,40 +226,40 @@ function Index() {
 
       <FeatureBlock
         id="location"
-        title="What is DHAMUN?"
+        title="What is JUBMUN?"
         image={delegatesImg}
         imageAlt="Student delegates preparing for a committee session"
       >
         <p>
-          DHAMUN, established in 2005, is one of Saudi Arabia&apos;s largest conferences of
-          nations. Aspiring student leaders undertake the role of delegates and diplomats to
+          JUBMUN is a student-led conference of nations holding its first chapter this November.
+          Aspiring student leaders undertake the role of delegates and diplomats to
           debate and discuss solutions for a better tomorrow.
         </p>
       </FeatureBlock>
 
       <FeatureBlock
         id="faq"
-        title="DHAMUN XX Mission Statement"
+        title="JUBMUN I Mission Statement"
         image={speakerImg}
-        imageAlt="A delegate delivering a speech at the DHAMUN podium"
+        imageAlt="A delegate delivering a speech at the JUBMUN podium"
         reverse
       >
         <p>
-          DHAMUN is a student body organisation that advances understanding of international
-          diplomacy and contemporary issues. DHAMUN positively affects the lives of participants
-          and prepares them to be better global citizens. At DHAMUN, students develop an
+          JUBMUN is a student body organisation that advances understanding of international
+          diplomacy and contemporary issues. JUBMUN positively affects the lives of participants
+          and prepares them to be better global citizens. At JUBMUN, students develop an
           appreciation of differing viewpoints, experience the challenges, witness the reward of
           cooperation, establish a unique connection, and discover the human side of diplomacy and
           international affairs.
         </p>
         <p>
           We promise to ensure quality for the delegates to experience, and have their debate
-          delve through the enriched topics we will offer. The DHAMUN experience seizes and
+          delve through the enriched topics we will offer. The JUBMUN experience seizes and
           strives to fulfil the aims and goals set out by the founders of this United Nations in
           the Preamble of the Charter: &ldquo;to practice tolerance and live together in peace
           with one another as good neighbors.&rdquo;
         </p>
-        <p className="pt-2 text-secondary">— The DHAMUN Executive Team</p>
+        <p className="pt-2 text-secondary">— The JUBMUN Executive Team</p>
       </FeatureBlock>
 
       <SiteFooter />
