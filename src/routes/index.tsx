@@ -2,24 +2,26 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroAsset from "@/assets/hero-vintage.jpg.asset.json";
-import logo from "@/assets/dhamun-logo.png";
+import logoAsset from "@/assets/jubmun-logo-white.png.asset.json";
+import { Navbar } from "@/components/Navbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import delegatesImg from "@/assets/delegates.jpg";
 import speakerImg from "@/assets/speaker.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "DHAMUN XX — Countdown to the 20th Chapter" },
+      { title: "JUBMUN I — Countdown to the First Chapter" },
       {
         name: "description",
         content:
-          "DHAMUN XX returns February 13-14. Join the 20th chapter of Dhahran Ahliyya Model United Nations — debate, diplomacy and delegate resources.",
+          "JUBMUN I takes place November 26 and 27. Join the first chapter of Jubail Model United Nations — debate, diplomacy and delegate resources.",
       },
-      { property: "og:title", content: "DHAMUN XX — Countdown to the 20th Chapter" },
+      { property: "og:title", content: "JUBMUN I — Countdown to the First Chapter" },
       {
         property: "og:description",
         content:
-          "DHAMUN XX returns February 13-14. Join the 20th chapter of Dhahran Ahliyya Model United Nations.",
+          "JUBMUN I takes place November 26 and 27. Join the first chapter of Jubail Model United Nations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -30,13 +32,14 @@ export const Route = createFileRoute("/")({
 
 const TARGET_MONTH = 10; // November (0-indexed)
 const TARGET_DAY = 26;
+const TARGET_HOUR = 9;
 
 function nextTarget() {
   const now = new Date();
   let year = now.getFullYear();
-  let target = new Date(year, TARGET_MONTH, TARGET_DAY, 0, 0, 0, 0);
+  let target = new Date(year, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, 0, 0, 0);
   if (target.getTime() <= now.getTime()) {
-    target = new Date(year + 1, TARGET_MONTH, TARGET_DAY, 0, 0, 0, 0);
+    target = new Date(year + 1, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, 0, 0, 0);
   }
   return target;
 }
@@ -83,16 +86,16 @@ function Hero() {
 
       <div className="mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center px-6 py-12 text-center">
         <img
-          src={logo}
-          alt="DHAMUN emblem"
+          src={logoAsset.url}
+          alt="JUBMUN emblem"
           width={1024}
           height={1024}
-          className="h-40 w-40 shrink-0 object-contain brightness-0 invert drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:h-52 sm:w-52"
+          className="h-40 w-40 shrink-0 object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:h-52 sm:w-52"
         />
 
         <div className="flex flex-1 flex-col items-center justify-center pb-16 pt-10">
           <h1 className="font-display text-[2.75rem] font-bold uppercase leading-[0.95] tracking-tight drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] sm:text-7xl lg:text-8xl">
-            DHAMUN XX Countdown
+            JUBMUN I
           </h1>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
@@ -103,10 +106,10 @@ function Hero() {
           </div>
 
           <h2 className="mt-16 font-display text-xl font-bold uppercase tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] sm:text-3xl">
-            Welcome to the 20th chapter of DHAMUN
+            Welcome to the beginning of JUBMUN
           </h2>
           <p className="mt-3 text-sm font-semibold uppercase tracking-[0.05em] sm:text-base">
-            On February 13th and 14th
+            On November 26th and 27th
           </p>
         </div>
       </div>
@@ -122,26 +125,26 @@ const actions = [
 
 function Intro() {
   return (
-    <section className="navy-surface px-6 py-20 text-secondary sm:py-24">
+    <section className="px-6 py-20 text-secondary sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
         <div className="max-w-xl">
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em]">
-            Welcome to DHAMUN
+            Welcome to JUBMUN
           </h2>
           <div className="mt-6 space-y-5 text-sm leading-relaxed text-secondary/85">
             <p>
               They say the future belongs to those who prepare for it today, and that&apos;s
-              exactly what we&apos;re doing at DHAMUN. What began 20 years ago as a small group of
-              aspiring debaters has grown into Saudi Arabia&apos;s largest conference of nations
-              and diplomacy.
+              exactly what we&apos;re doing at JUBMUN. What begins now as a group of aspiring
+              debaters is the first chapter of a conference of nations and diplomacy built by
+              students, for students.
             </p>
             <p>
-              DHAMUN continues to be a launchpad for bold ideas, a training ground for future
+              JUBMUN sets out to be a launchpad for bold ideas, a training ground for future
               leaders, and a space where students like us tackle the world&apos;s biggest
               questions head-on.
             </p>
             <p>
-              Guided by a commitment to education, collaboration and action, DHAMUN remains
+              Guided by a commitment to education, collaboration and action, JUBMUN remains
               steadfast in its pursuit of inspiring meaningful change. We invite you to join us,
               not just to participate, but to inspire, to be challenged, and to leave knowing
               you&apos;ve made a difference.
@@ -150,12 +153,12 @@ function Intro() {
         </div>
 
         <img
-          src={logo}
-          alt="DHAMUN emblem"
+          src={logoAsset.url}
+          alt="JUBMUN emblem"
           width={1024}
           height={1024}
           loading="lazy"
-          className="mx-auto h-44 w-44 object-contain brightness-0 invert sm:h-56 sm:w-56"
+          className="mx-auto h-44 w-44 object-contain sm:h-56 sm:w-56"
         />
       </div>
 
@@ -190,7 +193,7 @@ function FeatureBlock({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="navy-surface px-6 pb-16 text-secondary">
+    <section id={id} className="px-6 pb-16 text-secondary">
       <div className="mx-auto grid max-w-6xl items-center gap-0 md:grid-cols-2">
         <img
           src={image}
@@ -216,50 +219,51 @@ function FeatureBlock({
 function Index() {
   return (
     <main className="font-display">
+      <Navbar transparent />
       <Hero />
+      <div className="brand-gradient">
       <Intro />
 
       <FeatureBlock
         id="location"
-        title="What is DHAMUN?"
+        title="What is JUBMUN?"
         image={delegatesImg}
         imageAlt="Student delegates preparing for a committee session"
       >
         <p>
-          DHAMUN, established in 2005, is one of Saudi Arabia&apos;s largest conferences of
-          nations. Aspiring student leaders undertake the role of delegates and diplomats to
+          JUBMUN is a student-led conference of nations holding its first chapter this November.
+          Aspiring student leaders undertake the role of delegates and diplomats to
           debate and discuss solutions for a better tomorrow.
         </p>
       </FeatureBlock>
 
       <FeatureBlock
         id="faq"
-        title="DHAMUN XX Mission Statement"
+        title="JUBMUN I Mission Statement"
         image={speakerImg}
-        imageAlt="A delegate delivering a speech at the DHAMUN podium"
+        imageAlt="A delegate delivering a speech at the JUBMUN podium"
         reverse
       >
         <p>
-          DHAMUN is a student body organisation that advances understanding of international
-          diplomacy and contemporary issues. DHAMUN positively affects the lives of participants
-          and prepares them to be better global citizens. At DHAMUN, students develop an
+          JUBMUN is a student body organisation that advances understanding of international
+          diplomacy and contemporary issues. JUBMUN positively affects the lives of participants
+          and prepares them to be better global citizens. At JUBMUN, students develop an
           appreciation of differing viewpoints, experience the challenges, witness the reward of
           cooperation, establish a unique connection, and discover the human side of diplomacy and
           international affairs.
         </p>
         <p>
           We promise to ensure quality for the delegates to experience, and have their debate
-          delve through the enriched topics we will offer. The DHAMUN experience seizes and
+          delve through the enriched topics we will offer. The JUBMUN experience seizes and
           strives to fulfil the aims and goals set out by the founders of this United Nations in
           the Preamble of the Charter: &ldquo;to practice tolerance and live together in peace
           with one another as good neighbors.&rdquo;
         </p>
-        <p className="pt-2 text-secondary">— The DHAMUN Executive Team</p>
+        <p className="pt-2 text-secondary">— The JUBMUN Executive Team</p>
       </FeatureBlock>
 
-      <footer id="resources" className="navy-surface px-6 py-12 text-center text-secondary/70">
-        <p className="text-xs uppercase tracking-[0.2em]">DHAMUN XX · Est. 2005</p>
-      </footer>
+      <SiteFooter />
+      </div>
     </main>
   );
 }

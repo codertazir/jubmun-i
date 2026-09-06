@@ -10,33 +10,80 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ExecutiveTeamRouteImport } from './routes/executive-team'
+import { Route as LogisticsRouteImport } from './routes/logistics'
+import { Route as RegistrationRouteImport } from './routes/registration'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecutiveTeamRoute = ExecutiveTeamRouteImport.update({
+  id: '/executive-team',
+  path: '/executive-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogisticsRoute = LogisticsRouteImport.update({
+  id: '/logistics',
+  path: '/logistics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegistrationRoute = RegistrationRouteImport.update({
+  id: '/registration',
+  path: '/registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/executive-team': typeof ExecutiveTeamRoute
+  '/logistics': typeof LogisticsRoute
+  '/registration': typeof RegistrationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/executive-team': typeof ExecutiveTeamRoute
+  '/logistics': typeof LogisticsRoute
+  '/registration': typeof RegistrationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/executive-team': typeof ExecutiveTeamRoute
+  '/logistics': typeof LogisticsRoute
+  '/registration': typeof RegistrationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/contact' | '/executive-team' | '/logistics' | '/registration'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contact' | '/executive-team' | '/logistics' | '/registration'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/executive-team'
+    | '/logistics'
+    | '/registration'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  ExecutiveTeamRoute: typeof ExecutiveTeamRoute
+  LogisticsRoute: typeof LogisticsRoute
+  RegistrationRoute: typeof RegistrationRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +95,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executive-team': {
+      id: '/executive-team'
+      path: '/executive-team'
+      fullPath: '/executive-team'
+      preLoaderRoute: typeof ExecutiveTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/logistics': {
+      id: '/logistics'
+      path: '/logistics'
+      fullPath: '/logistics'
+      preLoaderRoute: typeof LogisticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/registration': {
+      id: '/registration'
+      path: '/registration'
+      fullPath: '/registration'
+      preLoaderRoute: typeof RegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  ExecutiveTeamRoute: ExecutiveTeamRoute,
+  LogisticsRoute: LogisticsRoute,
+  RegistrationRoute: RegistrationRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
