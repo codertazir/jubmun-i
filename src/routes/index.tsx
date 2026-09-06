@@ -2,7 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroAsset from "@/assets/hero-vintage.jpg.asset.json";
-import logo from "@/assets/dhamun-logo.png";
+import logoAsset from "@/assets/jubmun-logo-white.png.asset.json";
+import { Navbar } from "@/components/Navbar";
+import { SiteFooter } from "@/components/SiteFooter";
 import delegatesImg from "@/assets/delegates.jpg";
 import speakerImg from "@/assets/speaker.jpg";
 
@@ -30,13 +32,14 @@ export const Route = createFileRoute("/")({
 
 const TARGET_MONTH = 10; // November (0-indexed)
 const TARGET_DAY = 26;
+const TARGET_HOUR = 9;
 
 function nextTarget() {
   const now = new Date();
   let year = now.getFullYear();
-  let target = new Date(year, TARGET_MONTH, TARGET_DAY, 0, 0, 0, 0);
+  let target = new Date(year, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, 0, 0, 0);
   if (target.getTime() <= now.getTime()) {
-    target = new Date(year + 1, TARGET_MONTH, TARGET_DAY, 0, 0, 0, 0);
+    target = new Date(year + 1, TARGET_MONTH, TARGET_DAY, TARGET_HOUR, 0, 0, 0);
   }
   return target;
 }
@@ -83,16 +86,16 @@ function Hero() {
 
       <div className="mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center px-6 py-12 text-center">
         <img
-          src={logo}
-          alt="DHAMUN emblem"
+          src={logoAsset.url}
+          alt="JUBMUN emblem"
           width={1024}
           height={1024}
-          className="h-40 w-40 shrink-0 object-contain brightness-0 invert drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:h-52 sm:w-52"
+          className="h-40 w-40 shrink-0 object-contain drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)] sm:h-52 sm:w-52"
         />
 
         <div className="flex flex-1 flex-col items-center justify-center pb-16 pt-10">
           <h1 className="font-display text-[2.75rem] font-bold uppercase leading-[0.95] tracking-tight drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)] sm:text-7xl lg:text-8xl">
-            DHAMUN XX Countdown
+            JUBMUN I
           </h1>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
@@ -103,10 +106,10 @@ function Hero() {
           </div>
 
           <h2 className="mt-16 font-display text-xl font-bold uppercase tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] sm:text-3xl">
-            Welcome to the 20th chapter of DHAMUN
+            Welcome to the beginning of JUBMUN
           </h2>
           <p className="mt-3 text-sm font-semibold uppercase tracking-[0.05em] sm:text-base">
-            On February 13th and 14th
+            On November 26th and 27th
           </p>
         </div>
       </div>
@@ -122,11 +125,11 @@ const actions = [
 
 function Intro() {
   return (
-    <section className="navy-surface px-6 py-20 text-secondary sm:py-24">
+    <section className="px-6 py-20 text-secondary sm:py-24">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
         <div className="max-w-xl">
           <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em]">
-            Welcome to DHAMUN
+            Welcome to JUBMUN
           </h2>
           <div className="mt-6 space-y-5 text-sm leading-relaxed text-secondary/85">
             <p>
@@ -150,12 +153,12 @@ function Intro() {
         </div>
 
         <img
-          src={logo}
-          alt="DHAMUN emblem"
+          src={logoAsset.url}
+          alt="JUBMUN emblem"
           width={1024}
           height={1024}
           loading="lazy"
-          className="mx-auto h-44 w-44 object-contain brightness-0 invert sm:h-56 sm:w-56"
+          className="mx-auto h-44 w-44 object-contain sm:h-56 sm:w-56"
         />
       </div>
 
@@ -190,7 +193,7 @@ function FeatureBlock({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="navy-surface px-6 pb-16 text-secondary">
+    <section id={id} className="px-6 pb-16 text-secondary">
       <div className="mx-auto grid max-w-6xl items-center gap-0 md:grid-cols-2">
         <img
           src={image}
@@ -216,7 +219,9 @@ function FeatureBlock({
 function Index() {
   return (
     <main className="font-display">
+      <Navbar transparent />
       <Hero />
+      <div className="brand-gradient">
       <Intro />
 
       <FeatureBlock
@@ -257,9 +262,8 @@ function Index() {
         <p className="pt-2 text-secondary">— The DHAMUN Executive Team</p>
       </FeatureBlock>
 
-      <footer id="resources" className="navy-surface px-6 py-12 text-center text-secondary/70">
-        <p className="text-xs uppercase tracking-[0.2em]">DHAMUN XX · Est. 2005</p>
-      </footer>
+      <SiteFooter />
+      </div>
     </main>
   );
 }
