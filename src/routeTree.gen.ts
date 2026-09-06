@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExecutiveTeamRouteImport } from './routes/executive-team'
 import { Route as LogisticsRouteImport } from './routes/logistics'
 import { Route as RegistrationRouteImport } from './routes/registration'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecutiveTeamRoute = ExecutiveTeamRouteImport.update({
+  id: '/executive-team',
+  path: '/executive-team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogisticsRoute = LogisticsRouteImport.update({
@@ -31,30 +37,34 @@ const RegistrationRoute = RegistrationRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/executive-team': typeof ExecutiveTeamRoute
   '/logistics': typeof LogisticsRoute
   '/registration': typeof RegistrationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/executive-team': typeof ExecutiveTeamRoute
   '/logistics': typeof LogisticsRoute
   '/registration': typeof RegistrationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/executive-team': typeof ExecutiveTeamRoute
   '/logistics': typeof LogisticsRoute
   '/registration': typeof RegistrationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/logistics' | '/registration'
+  fullPaths: '/' | '/executive-team' | '/logistics' | '/registration'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/logistics' | '/registration'
-  id: '__root__' | '/' | '/logistics' | '/registration'
+  to: '/' | '/executive-team' | '/logistics' | '/registration'
+  id: '__root__' | '/' | '/executive-team' | '/logistics' | '/registration'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExecutiveTeamRoute: typeof ExecutiveTeamRoute
   LogisticsRoute: typeof LogisticsRoute
   RegistrationRoute: typeof RegistrationRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executive-team': {
+      id: '/executive-team'
+      path: '/executive-team'
+      fullPath: '/executive-team'
+      preLoaderRoute: typeof ExecutiveTeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/logistics': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExecutiveTeamRoute: ExecutiveTeamRoute,
   LogisticsRoute: LogisticsRoute,
   RegistrationRoute: RegistrationRoute,
 }
