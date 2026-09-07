@@ -73,7 +73,7 @@ function GuidesPage() {
               href={d.href}
               target="_blank"
               rel="noreferrer"
-              className="flex h-full items-center gap-4 rounded-lg bg-panel/80 p-6 shadow-lg ring-1 ring-secondary/10 transition-all duration-300 hover:-translate-y-1 hover:bg-panel hover:ring-secondary/30"
+              className="group flex h-full items-center gap-4 rounded-lg bg-panel/80 p-6 shadow-lg ring-1 ring-secondary/10 transition-all duration-300 hover:-translate-y-1 hover:bg-panel hover:ring-secondary/30"
             >
               <FileText className="h-5 w-5 shrink-0 text-secondary/70 transition-transform duration-300 group-hover:scale-110" />
               <span className="font-display text-xs font-bold uppercase tracking-[0.1em]">
