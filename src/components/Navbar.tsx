@@ -6,6 +6,8 @@ import logoAsset from "@/assets/jubmun-logo-white.png.asset.json";
 
 export const navLinks = [
   { label: "Registration", to: "/registration" },
+  { label: "Committees", to: "/committees" },
+  { label: "Rules & Guides", to: "/guides" },
   { label: "Logistics", to: "/logistics" },
   { label: "Executive Team", to: "/executive-team" },
   { label: "Contact Us", to: "/contact" },

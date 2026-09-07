@@ -10,14 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CommitteesRouteImport } from './routes/committees'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExecutiveTeamRouteImport } from './routes/executive-team'
+import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as LogisticsRouteImport } from './routes/logistics'
 import { Route as RegistrationRouteImport } from './routes/registration'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommitteesRoute = CommitteesRouteImport.update({
+  id: '/committees',
+  path: '/committees',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -28,6 +35,11 @@ const ContactRoute = ContactRouteImport.update({
 const ExecutiveTeamRoute = ExecutiveTeamRouteImport.update({
   id: '/executive-team',
   path: '/executive-team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuidesRoute = GuidesRouteImport.update({
+  id: '/guides',
+  path: '/guides',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogisticsRoute = LogisticsRouteImport.update({
@@ -43,45 +55,68 @@ const RegistrationRoute = RegistrationRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/committees': typeof CommitteesRoute
   '/contact': typeof ContactRoute
   '/executive-team': typeof ExecutiveTeamRoute
+  '/guides': typeof GuidesRoute
   '/logistics': typeof LogisticsRoute
   '/registration': typeof RegistrationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/committees': typeof CommitteesRoute
   '/contact': typeof ContactRoute
   '/executive-team': typeof ExecutiveTeamRoute
+  '/guides': typeof GuidesRoute
   '/logistics': typeof LogisticsRoute
   '/registration': typeof RegistrationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/committees': typeof CommitteesRoute
   '/contact': typeof ContactRoute
   '/executive-team': typeof ExecutiveTeamRoute
+  '/guides': typeof GuidesRoute
   '/logistics': typeof LogisticsRoute
   '/registration': typeof RegistrationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contact' | '/executive-team' | '/logistics' | '/registration'
+    | '/'
+    | '/committees'
+    | '/contact'
+    | '/executive-team'
+    | '/guides'
+    | '/logistics'
+    | '/registration'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/executive-team' | '/logistics' | '/registration'
+  to:
+    | '/'
+    | '/committees'
+    | '/contact'
+    | '/executive-team'
+    | '/guides'
+    | '/logistics'
+    | '/registration'
   id:
     | '__root__'
     | '/'
+    | '/committees'
     | '/contact'
     | '/executive-team'
+    | '/guides'
     | '/logistics'
     | '/registration'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommitteesRoute: typeof CommitteesRoute
   ContactRoute: typeof ContactRoute
   ExecutiveTeamRoute: typeof ExecutiveTeamRoute
+  GuidesRoute: typeof GuidesRoute
   LogisticsRoute: typeof LogisticsRoute
   RegistrationRoute: typeof RegistrationRoute
 }
@@ -93,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/committees': {
+      id: '/committees'
+      path: '/committees'
+      fullPath: '/committees'
+      preLoaderRoute: typeof CommitteesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -107,6 +149,13 @@ declare module '@tanstack/react-router' {
       path: '/executive-team'
       fullPath: '/executive-team'
       preLoaderRoute: typeof ExecutiveTeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guides': {
+      id: '/guides'
+      path: '/guides'
+      fullPath: '/guides'
+      preLoaderRoute: typeof GuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/logistics': {
@@ -128,8 +177,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommitteesRoute: CommitteesRoute,
   ContactRoute: ContactRoute,
   ExecutiveTeamRoute: ExecutiveTeamRoute,
+  GuidesRoute: GuidesRoute,
   LogisticsRoute: LogisticsRoute,
   RegistrationRoute: RegistrationRoute,
 }
