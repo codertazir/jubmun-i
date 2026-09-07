@@ -127,42 +127,46 @@ const actions = [
 function Intro() {
   return (
     <section className="px-6 py-20 text-secondary sm:py-24">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
-        <div className="max-w-xl">
-          <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em]">
-            Welcome to JUBMUN
-          </h2>
-          <div className="mt-6 space-y-5 text-sm leading-relaxed text-secondary/85">
-            <p>
-              Welcome to the beginning of JUBMUN, where students from every background and level
-              of experience are invited to come together, debate, collaborate, and grow. This
-              conference is a space to challenge your thinking, engage with global issues, and
-              discover your potential as a leader, a diplomat, and an agent of change.
-            </p>
+      <Reveal>
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-start">
+          <div className="max-w-xl">
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em]">
+              Welcome to JUBMUN
+            </h2>
+            <div className="mt-6 space-y-5 text-sm leading-relaxed text-secondary/85">
+              <p>
+                Welcome to the beginning of JUBMUN, where students from every background and level
+                of experience are invited to come together, debate, collaborate, and grow. This
+                conference is a space to challenge your thinking, engage with global issues, and
+                discover your potential as a leader, a diplomat, and an agent of change.
+              </p>
+            </div>
           </div>
+
+          <img
+            src={logoAsset.url}
+            alt="JUBMUN emblem"
+            width={1024}
+            height={1024}
+            loading="lazy"
+            className="mx-auto h-44 w-44 object-contain sm:h-56 sm:w-56"
+          />
         </div>
+      </Reveal>
 
-        <img
-          src={logoAsset.url}
-          alt="JUBMUN emblem"
-          width={1024}
-          height={1024}
-          loading="lazy"
-          className="mx-auto h-44 w-44 object-contain sm:h-56 sm:w-56"
-        />
-      </div>
-
-      <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
-        {actions.map((a) => (
-          <a
-            key={a.label}
-            href={a.href}
-            className="flex items-center justify-center rounded-sm border border-secondary/60 px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:text-navy"
-          >
-            {a.label}
-          </a>
-        ))}
-      </div>
+      <Reveal delay={100}>
+        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
+          {actions.map((a) => (
+            <a
+              key={a.label}
+              href={a.href}
+              className="flex items-center justify-center rounded-sm border border-secondary/60 px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:text-navy"
+            >
+              {a.label}
+            </a>
+          ))}
+        </div>
+      </Reveal>
     </section>
   );
 }
@@ -184,24 +188,28 @@ function FeatureBlock({
 }) {
   return (
     <section id={id} className="px-6 pb-16 text-secondary">
-      <div className="mx-auto grid max-w-6xl items-center gap-0 md:grid-cols-2">
-        <img
-          src={image}
-          alt={imageAlt}
-          width={1200}
-          height={900}
-          loading="lazy"
-          className={`h-64 w-full object-cover transition-transform duration-700 hover:scale-[1.03] sm:h-96 ${reverse ? "md:order-2" : ""}`}
-        />
-        <div
-          className={`relative z-10 bg-panel p-8 sm:p-10 ${
-            reverse ? "md:order-1 md:mr-[-3rem]" : "md:ml-[-3rem]"
-          }`}
-        >
-          <h3 className="font-display text-sm font-bold uppercase tracking-[0.08em]">{title}</h3>
-          <div className="mt-5 space-y-4 text-sm leading-relaxed text-secondary/80">{children}</div>
+      <Reveal>
+        <div className="mx-auto grid max-w-6xl items-center gap-0 md:grid-cols-2">
+          <img
+            src={image}
+            alt={imageAlt}
+            width={1200}
+            height={900}
+            loading="lazy"
+            className={`h-64 w-full object-cover transition-transform duration-700 hover:scale-[1.03] sm:h-96 ${reverse ? "md:order-2" : ""}`}
+          />
+          <div
+            className={`relative z-10 bg-panel p-8 sm:p-10 ${
+              reverse ? "md:order-1 md:mr-[-3rem]" : "md:ml-[-3rem]"
+            }`}
+          >
+            <h3 className="font-display text-sm font-bold uppercase tracking-[0.08em]">{title}</h3>
+            <div className="mt-5 space-y-4 text-sm leading-relaxed text-secondary/80">
+              {children}
+            </div>
+          </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -212,44 +220,44 @@ function Index() {
       <Navbar transparent />
       <Hero />
       <div className="brand-gradient">
-      <Intro />
+        <Intro />
 
-      <FeatureBlock
-        id="location"
-        title="JUBMUN I's Theme"
-        image={delegatesImg}
-        imageAlt="Student delegates preparing for a committee session"
-      >
-        <p>
-          The theme this year is &ldquo;Break The Chain&rdquo;, challenging every delegate to look
-          and search beyond routine solutions and confront the cycles that hold our global
-          community back from prospering &mdash; whether politically, socially, or
-          environmentally, we call delegates to come and ponder over these chains restricting us.
-          As you step into debate, negotiation and diplomacy, and collaboration, remember that you
-          have the power to shift the perspective and inspire real change. JUBMUN isn&apos;t just
-          a conference; it&apos;s a space to grow, question, lead, and explore with purpose.
-        </p>
-      </FeatureBlock>
+        <FeatureBlock
+          id="location"
+          title="JUBMUN I's Theme"
+          image={delegatesImg}
+          imageAlt="Student delegates preparing for a committee session"
+        >
+          <p>
+            The theme this year is &ldquo;Break The Chain&rdquo;, challenging every delegate to look
+            and search beyond routine solutions and confront the cycles that hold our global
+            community back from prospering &mdash; whether politically, socially, or
+            environmentally, we call delegates to come and ponder over these chains restricting us.
+            As you step into debate, negotiation and diplomacy, and collaboration, remember that you
+            have the power to shift the perspective and inspire real change. JUBMUN isn&apos;t just
+            a conference; it&apos;s a space to grow, question, lead, and explore with purpose.
+          </p>
+        </FeatureBlock>
 
-      <FeatureBlock
-        id="faq"
-        title="JUBMUN I Mission Statement"
-        image={speakerImg}
-        imageAlt="A delegate delivering a speech at the JUBMUN podium"
-        reverse
-      >
-        <p>
-          As JUBMUN&rsquo;s inaugural conference, our mission is to create an experience shaped by
-          the dedication, vision, and hard work of our student body. We aim to empower delegates
-          to think critically, negotiate boldly, and engage deeply with global challenges,
-          fostering leadership, collaboration, and creativity at every step. Above all, we seek to
-          ensure that every participant leaves with lasting skills, connections, and unforgettable
-          memories.
-        </p>
-        <p className="pt-2 text-secondary">— The JUBMUN Executive Team</p>
-      </FeatureBlock>
+        <FeatureBlock
+          id="faq"
+          title="JUBMUN I Mission Statement"
+          image={speakerImg}
+          imageAlt="A delegate delivering a speech at the JUBMUN podium"
+          reverse
+        >
+          <p>
+            As JUBMUN&rsquo;s inaugural conference, our mission is to create an experience shaped by
+            the dedication, vision, and hard work of our student body. We aim to empower delegates
+            to think critically, negotiate boldly, and engage deeply with global challenges,
+            fostering leadership, collaboration, and creativity at every step. Above all, we seek to
+            ensure that every participant leaves with lasting skills, connections, and unforgettable
+            memories.
+          </p>
+          <p className="pt-2 text-secondary">— The JUBMUN Executive Team</p>
+        </FeatureBlock>
 
-      <SiteFooter />
+        <SiteFooter />
       </div>
     </main>
   );
