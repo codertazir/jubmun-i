@@ -6,6 +6,8 @@ import logoAsset from "@/assets/jubmun-logo-white.png.asset.json";
 
 export const navLinks = [
   { label: "Registration", to: "/registration" },
+  { label: "Committees", to: "/committees" },
+  { label: "Rules & Guides", to: "/guides" },
   { label: "Logistics", to: "/logistics" },
   { label: "Executive Team", to: "/executive-team" },
   { label: "Contact Us", to: "/contact" },
@@ -39,19 +41,19 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             scrolled ? "opacity-100" : "pointer-events-none opacity-0"
           }`}
         >
-          <img src={logoAsset.url} alt="JUBMUN emblem" className="h-10 w-10 object-contain" />
+          <img src={logoAsset.url} alt="JUBMUN emblem" className="h-10 w-10 object-contain transition-transform duration-300 hover:scale-105" />
           <span className="font-display text-sm font-bold uppercase tracking-[0.15em] text-secondary">
             JUBMUN I
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-6 md:flex">
           {navLinks.map((l) => (
             <li key={l.to}>
               <Link
                 to={l.to}
                 activeProps={{ className: "text-secondary" }}
-                className="font-display text-xs font-bold uppercase tracking-[0.12em] text-secondary/75 transition-colors hover:text-secondary"
+                className="font-display text-xs font-bold uppercase tracking-[0.12em] story-link text-secondary/75 transition-colors hover:text-secondary"
               >
                 {l.label}
               </Link>
@@ -70,7 +72,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
       </nav>
 
       {open && (
-        <ul className="bg-navy-deep/95 px-6 pb-5 md:hidden">
+        <ul className="animate-fade-in bg-navy-deep/95 px-6 pb-5 md:hidden">
           {navLinks.map((l) => (
             <li key={l.to}>
               <Link
