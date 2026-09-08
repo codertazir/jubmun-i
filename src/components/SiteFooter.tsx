@@ -9,7 +9,7 @@ export function SiteFooter() {
         loading="lazy"
         className="mx-auto h-16 w-16 object-contain opacity-80 transition-transform duration-500 hover:scale-105"
       />
-      <p className="mt-4 text-xs uppercase tracking-[0.2em]">JUBMUN I · November 26 &amp; 27</p>
+      <p className="mt-4 text-xs uppercase tracking-[0.2em]">JUBMUN I · November 6 &amp; 27</p>
     </footer>
   );
 }

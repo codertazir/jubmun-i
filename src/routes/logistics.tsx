@@ -23,7 +23,7 @@ export const Route = createFileRoute("/logistics")({
   component: LogisticsPage,
 });
 
-const day1 = [
+const day1: [string, string][] = [
   ["8:30 – 9:00", "Delegate arrival"],
   ["9:00 – 9:45", "Opening ceremony"],
   ["9:45 – 10:00", "Transition to committees"],
@@ -35,7 +35,7 @@ const day1 = [
   ["3:45 – 4:00", "Delegates dismissal"],
 ];
 
-const day2 = [
+const day2: [string, string][] = [
   ["8:30 – 9:00", "Delegates' arrival"],
   ["9:00 – 10:15", "Committee session #4"],
   ["10:15 – 11:00", "In-committee breakfast break & chair meeting"],
@@ -47,7 +47,7 @@ const day2 = [
   ["4:00", "Delegate dismissal"],
 ];
 
-function Schedule({ rows }: { rows: string[][] }) {
+function Schedule({ rows }: { rows: [string, string][] }) {
   return (
     <ul className="divide-y divide-secondary/10">
       {rows.map(([time, item]) => (

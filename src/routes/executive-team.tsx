@@ -9,7 +9,7 @@ export const Route = createFileRoute("/executive-team")({
       {
         name: "description",
         content:
-          "Meet the student executive team organising the first chapter of JUBMUN, held November 26 and 27.",
+          "Meet the student executive team organising the first chapter of JUBMUN, held November 6 and 7.",
       },
       { property: "og:title", content: "Executive Team — JUBMUN I" },
       {
