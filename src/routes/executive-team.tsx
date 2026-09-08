@@ -9,7 +9,7 @@ export const Route = createFileRoute("/executive-team")({
       {
         name: "description",
         content:
-          "Meet the student executive team organising the first chapter of JUBMUN, held November 26 and 27.",
+          "Meet the student executive team organising the first chapter of JUBMUN, held November 6 and 7.",
       },
       { property: "og:title", content: "Executive Team — JUBMUN I" },
       {
@@ -36,7 +36,7 @@ function ExecutiveTeamPage() {
   return (
     <PageShell
       title="Executive Team"
-      intro="The student leaders building the first chapter of JUBMUN. Names and photos will be announced soon."
+      intro="The JUBMUN Executive Board is a distinguished body of experienced, dedicated, and highly trained individuals committed to upholding the highest standards of academic excellence and diplomacy. Serving as the backbone of each committee, the Executive Board ensures fair debate, structured procedure, and an intellectually stimulating environment where delegates are challenged to think critically and engage respectfully. With a strong foundation in Model United Nations principles, research, and leadership, the JUBMUN Executive Board strives to guide delegates, foster meaningful discussion, and create an unforgettable conference experience that reflects the true spirit of international cooperation and professionalism."
     >
       <div className="grid gap-6 sm:grid-cols-2">
         {roles.map((r) => (

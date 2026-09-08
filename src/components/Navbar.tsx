@@ -29,25 +29,37 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
   }, [transparent]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-navy-deep/90 backdrop-blur-md shadow-lg" : "bg-transparent"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <nav
+        className={`mx-auto flex max-w-5xl items-center justify-between gap-2 rounded-full border px-3 py-2 transition-all duration-500 ease-out ${
+          scrolled
+            ? "border-secondary/20 bg-navy-deep/85 shadow-xl backdrop-blur-xl"
+            : "border-secondary/25 bg-navy-deep/30 shadow-lg backdrop-blur-md"
+        }`}
+      >
         <Link
           to="/"
-          className={`flex items-center gap-3 transition-opacity duration-300 ${
-            scrolled ? "opacity-100" : "pointer-events-none opacity-0"
+          aria-hidden={!scrolled}
+          tabIndex={scrolled ? 0 : -1}
+          className={`grid transition-all duration-500 ease-out ${
+            scrolled
+              ? "grid-cols-[1fr] opacity-100"
+              : "pointer-events-none grid-cols-[0fr] opacity-0"
           }`}
         >
-          <img src={logoAsset.url} alt="JUBMUN emblem" className="h-10 w-10 object-contain transition-transform duration-300 hover:scale-105" />
-          <span className="font-display text-sm font-bold uppercase tracking-[0.15em] text-secondary">
-            JUBMUN I
+          <span className="flex items-center gap-2 overflow-hidden whitespace-nowrap pl-1">
+            <img
+              src={logoAsset.url}
+              alt="JUBMUN emblem"
+              className="h-9 w-9 shrink-0 object-contain transition-transform duration-300 hover:scale-105"
+            />
+            <span className="font-display text-sm font-bold uppercase tracking-[0.15em] text-secondary">
+              JUBMUN I
+            </span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-6 md:flex">
+        <ul className="hidden items-center gap-5 px-3 md:flex">
           {navLinks.map((l) => (
             <li key={l.to}>
               <Link
@@ -65,20 +77,22 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="text-secondary md:hidden"
+          className="rounded-full p-2 text-secondary transition-colors hover:bg-secondary/10 md:hidden"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {open && (
-        <ul className="animate-fade-in bg-navy-deep/95 px-6 pb-5 md:hidden">
-          {navLinks.map((l) => (
+        <ul className="animate-fade-in mx-auto mt-2 max-w-5xl rounded-3xl border border-secondary/20 bg-navy-deep/95 px-5 py-2 backdrop-blur-xl md:hidden">
+          {navLinks.map((l, i) => (
             <li key={l.to}>
               <Link
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="block border-t border-secondary/15 py-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-secondary/85"
+                className={`block py-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-secondary/85 ${
+                  i > 0 ? "border-t border-secondary/15" : ""
+                }`}
               >
                 {l.label}
               </Link>

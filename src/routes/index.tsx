@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import heroAsset from "@/assets/hero-vintage.jpg.asset.json";
@@ -16,13 +16,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "JUBMUN I takes place November 26 and 27. Join the first chapter of Jubail Model United Nations — debate, diplomacy and delegate resources.",
+          "JUBMUN I takes place November 6 and 7. Join the first chapter of Jubail Model United Nations — debate, diplomacy and delegate resources.",
       },
       { property: "og:title", content: "JUBMUN I — Countdown to the First Chapter" },
       {
         property: "og:description",
         content:
-          "JUBMUN I takes place November 26 and 27. Join the first chapter of Jubail Model United Nations.",
+          "JUBMUN I takes place November 6 and 7. Join the first chapter of Jubail Model United Nations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 const TARGET_MONTH = 10; // November (0-indexed)
-const TARGET_DAY = 26;
+const TARGET_DAY = 6;
 const TARGET_HOUR = 9;
 
 function nextTarget() {
@@ -110,7 +110,7 @@ function Hero() {
             Welcome to the beginning of JUBMUN
           </h2>
           <p className="mt-3 text-sm font-semibold uppercase tracking-[0.05em] sm:text-base">
-            On November 26th and 27th
+            On November 6th and 7th
           </p>
         </div>
       </div>
@@ -119,10 +119,10 @@ function Hero() {
 }
 
 const actions = [
-  { label: "LOCATION", href: "#location" },
-  { label: "FAQ", href: "#faq" },
-  { label: "DELEGATE RESOURCES", href: "#resources" },
-];
+  { label: "LOCATION", to: "/logistics" },
+  { label: "FAQ", to: "/contact" },
+  { label: "RULES & GUIDES", to: "/guides" },
+] as const;
 
 function Intro() {
   return (
@@ -157,13 +157,13 @@ function Intro() {
       <Reveal delay={100}>
         <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
           {actions.map((a) => (
-            <a
+            <Link
               key={a.label}
-              href={a.href}
+              to={a.to}
               className="flex items-center justify-center rounded-sm border border-secondary/60 px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:text-navy"
             >
               {a.label}
-            </a>
+            </Link>
           ))}
         </div>
       </Reveal>
