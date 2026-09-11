@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { InfoCard, PageShell } from "@/components/PageShell";
+import { PageShell } from "@/components/PageShell";
+import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/executive-team")({
   head: () => ({
@@ -91,11 +92,19 @@ function ExecutiveTeamPage() {
       title="Executive Team"
       intro="The JUBMUN Executive Board is a distinguished body of experienced, dedicated, and highly trained individuals committed to upholding the highest standards of academic excellence and diplomacy. Serving as the backbone of each committee, the Executive Board ensures fair debate, structured procedure, and an intellectually stimulating environment where delegates are challenged to think critically and engage respectfully. With a strong foundation in Model United Nations principles, research, and leadership, the JUBMUN Executive Board strives to guide delegates, foster meaningful discussion, and create an unforgettable conference experience that reflects the true spirit of international cooperation and professionalism."
     >
-      <div className="grid gap-6 sm:grid-cols-2">
-        {roles.map((r) => (
-          <InfoCard key={r.role} title={r.role}>
-            <p>{r.note}</p>
-          </InfoCard>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {members.map((m, i) => (
+          <Reveal key={m.name} delay={(i % 3) * 70}>
+            <div className="h-full rounded-lg bg-panel/80 p-7 text-center shadow-lg ring-1 ring-secondary/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-secondary/25">
+              <h2 className="font-display text-base font-bold tracking-tight">{m.name}</h2>
+              <p className="mt-2 font-display text-xs font-bold uppercase tracking-[0.12em] text-secondary/70">
+                {m.role}
+              </p>
+              <p className="mt-4 text-sm italic leading-relaxed text-secondary/80">
+                &ldquo;{m.quote}&rdquo;
+              </p>
+            </div>
+          </Reveal>
         ))}
       </div>
     </PageShell>
