@@ -102,8 +102,8 @@
   --panel: oklch(0.11 0.04 265);
   --hero-overlay: linear-gradient(
     to bottom,
-    color-mix(in oklab, black 26%, transparent),
-    color-mix(in oklab, black 34%, transparent)
+    color-mix(in oklab, black 55%, transparent),
+    color-mix(in oklab, black 65%, transparent)
   );
   --navy-texture: radial-gradient(
       120% 80% at 20% 0%,
@@ -222,7 +222,8 @@
     transition: transform 0.3s ease;
   }
 
-  .story-link:hover::after {
+  .story-link:hover::after,
+  .story-link.is-active::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
