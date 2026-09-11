@@ -35,17 +35,26 @@ export function PageShell({
 export function InfoCard({
   title,
   children,
+  action,
   delay = 0,
 }: {
   title: string;
   children: ReactNode;
+  action?: ReactNode;
   delay?: number;
 }) {
   return (
     <Reveal delay={delay}>
       <div className="rounded-lg bg-panel/80 p-7 shadow-lg ring-1 ring-secondary/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:ring-secondary/25">
-        <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em]">{title}</h2>
-        <div className="mt-4 space-y-3 text-sm leading-relaxed text-secondary/80">{children}</div>
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="min-w-0 flex-1">
+            <h2 className="font-display text-sm font-bold uppercase tracking-[0.08em]">{title}</h2>
+            <div className="mt-4 space-y-3 text-sm leading-relaxed text-secondary/80">
+              {children}
+            </div>
+          </div>
+          {action ? <div className="shrink-0 sm:pl-6">{action}</div> : null}
+        </div>
       </div>
     </Reveal>
   );

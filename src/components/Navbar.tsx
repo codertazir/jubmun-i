@@ -31,10 +31,10 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav
-        className={`mx-auto flex max-w-5xl items-center justify-between gap-2 rounded-full border px-3 py-2 transition-all duration-500 ease-out ${
+        className={`mx-auto flex w-fit items-center gap-2 rounded-full border py-2 transition-all duration-500 ease-out ${
           scrolled
-            ? "border-secondary/20 bg-navy-deep/85 shadow-xl backdrop-blur-xl"
-            : "border-secondary/25 bg-navy-deep/30 shadow-lg backdrop-blur-md"
+            ? "max-w-5xl justify-between border-secondary/20 bg-navy-deep/85 pl-3 pr-3 shadow-xl backdrop-blur-xl md:w-full"
+            : "max-w-5xl justify-center border-secondary/25 bg-navy-deep/30 px-3 shadow-lg backdrop-blur-md"
         }`}
       >
         <Link
@@ -64,7 +64,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             <li key={l.to}>
               <Link
                 to={l.to}
-                activeProps={{ className: "text-secondary" }}
+                activeProps={{ className: "text-secondary is-active" }}
                 className="font-display text-xs font-bold uppercase tracking-[0.12em] story-link text-secondary/75 transition-colors hover:text-secondary"
               >
                 {l.label}
@@ -90,6 +90,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
               <Link
                 to={l.to}
                 onClick={() => setOpen(false)}
+                activeProps={{ className: "text-secondary underline underline-offset-4" }}
                 className={`block py-3 font-display text-xs font-bold uppercase tracking-[0.12em] text-secondary/85 ${
                   i > 0 ? "border-t border-secondary/15" : ""
                 }`}

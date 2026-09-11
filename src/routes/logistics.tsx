@@ -47,6 +47,9 @@ const day2: [string, string][] = [
   ["4:00", "Delegate dismissal"],
 ];
 
+const ctaClass =
+  "inline-flex items-center justify-center rounded-sm border border-secondary/60 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:text-navy";
+
 function Schedule({ rows }: { rows: [string, string][] }) {
   return (
     <ul className="divide-y divide-secondary/10">
@@ -74,18 +77,36 @@ function LogisticsPage() {
       <InfoCard title="Conference day 2" delay={120}>
         <Schedule rows={day2} />
       </InfoCard>
-      <InfoCard title="Location" delay={180}>
+      <InfoCard
+        title="Location"
+        delay={180}
+        action={
+          <a
+            href="https://maps.app.goo.gl/xaReavUiBPSB6AQK8"
+            target="_blank"
+            rel="noreferrer"
+            className={ctaClass}
+          >
+            View venue on Google Maps
+          </a>
+        }
+      >
         <p>The conference is hosted on campus. Open the venue map for directions:</p>
-        <a
-          href="https://maps.app.goo.gl/xaReavUiBPSB6AQK8"
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center justify-center rounded-sm border border-secondary/60 px-6 py-3 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 hover:-translate-y-0.5 hover:bg-secondary hover:text-navy"
-        >
-          View venue on Google Maps
-        </a>
       </InfoCard>
-      <InfoCard title="Dress code" delay={240}>
+      <InfoCard
+        title="Dress code"
+        delay={240}
+        action={
+          <a
+            href="https://drive.google.com/file/d/10woHQj1teHO0pVgcVhttBh_xgeFrOJEm/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+            className={ctaClass}
+          >
+            View dress code
+          </a>
+        }
+      >
         <p>
           Western business attire is required in committee sessions. Delegates should wear their
           badge at all times inside the venue.

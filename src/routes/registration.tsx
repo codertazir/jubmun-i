@@ -53,27 +53,37 @@ function RegistrationPage() {
           professionalism that define the conference.
         </p>
       </InfoCard>
-      <InfoCard title="Delegates" delay={120}>
+      <InfoCard
+        title="Delegates"
+        delay={120}
+        action={
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSek6g8fRgDqq1esvCMvctqP6CCfh1evc90PcClc74N7S9G03A/viewform?usp=preview"
+            target="_blank"
+            rel="noreferrer"
+            className={linkClass}
+          >
+            Delegate registration form
+          </a>
+        }
+      >
         <p>Delegates may register using this form:</p>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSek6g8fRgDqq1esvCMvctqP6CCfh1evc90PcClc74N7S9G03A/viewform?usp=preview"
-          target="_blank"
-          rel="noreferrer"
-          className={linkClass}
-        >
-          Delegate registration form
-        </a>
       </InfoCard>
-      <InfoCard title="Chairs" delay={180}>
+      <InfoCard
+        title="Chairs"
+        delay={180}
+        action={
+          <a
+            href="https://forms.gle/HVRHDsTTc94AWxU66"
+            target="_blank"
+            rel="noreferrer"
+            className={linkClass}
+          >
+            Chair registration form
+          </a>
+        }
+      >
         <p>Chairs may register using this form:</p>
-        <a
-          href="https://forms.gle/HVRHDsTTc94AWxU66"
-          target="_blank"
-          rel="noreferrer"
-          className={linkClass}
-        >
-          Chair registration form
-        </a>
       </InfoCard>
     </PageShell>
   );
