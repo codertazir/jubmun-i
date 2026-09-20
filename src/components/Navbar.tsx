@@ -31,10 +31,10 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <nav
-        className={`mx-auto flex w-fit items-center gap-2 rounded-full border py-2 transition-all duration-500 ease-out ${
+        className={`mx-auto flex w-fit items-center gap-2 transition-all duration-500 ease-out ${
           scrolled
-            ? "max-w-5xl justify-between border-secondary/20 bg-navy-deep/85 pl-3 pr-3 shadow-xl backdrop-blur-xl md:w-full"
-            : "max-w-5xl justify-center border-secondary/25 bg-navy-deep/30 px-3 shadow-lg backdrop-blur-md"
+            ? "max-w-5xl justify-between rounded-full border border-secondary/20 bg-navy-deep/85 px-3 py-2 shadow-xl backdrop-blur-xl md:w-full"
+            : "max-w-5xl justify-center border border-transparent bg-transparent px-0 py-2 shadow-none"
         }`}
       >
         <Link
