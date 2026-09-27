@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "b46fc977-4aae-4371-92ed-ad770cc48f18",
-  "project_id": "fab61abb-3ebc-4f30-ae85-7b0734203b34",
-  "url": "/__l5e/assets-v1/b46fc977-4aae-4371-92ed-ad770cc48f18/jubmun-logo-white-v2.png",
-  "r2_key": "a/v1/fab61abb-3ebc-4f30-ae85-7b0734203b34/b46fc977-4aae-4371-92ed-ad770cc48f18/jubmun-logo-white-v2.png",
-  "original_filename": "jubmun-logo-white-v2.png",
-  "size": 166254,
   "content_type": "image/png",
-  "created_at": "2026-09-11T12:14:35Z"
+  "created_at": "2026-09-11T12:14:35Z",
+  "original_filename": "jubmun-logo-white-v2.png",
+  "project_id": "250fdc87-5377-40c1-ab86-39f30a4ca692",
+  "r2_key": "a/v1/250fdc87-5377-40c1-ab86-39f30a4ca692/b46fc977-4aae-4371-92ed-ad770cc48f18/jubmun-logo-white-v2.png",
+  "size": 166254,
+  "url": "/__l5e/assets-v1/b46fc977-4aae-4371-92ed-ad770cc48f18/jubmun-logo-white-v2.png",
+  "version": 1
 }
