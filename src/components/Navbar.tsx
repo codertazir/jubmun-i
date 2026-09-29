@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
-import logoAsset from "@/assets/jubmun-logo-white.png.asset.json";
+import logoAsset from "@/assets/jubmun-logo-white.png";
 
 export const navLinks = [
   { label: "Registration", to: "/registration" },
@@ -49,7 +49,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
         >
           <span className="flex items-center gap-2 overflow-hidden whitespace-nowrap pl-1">
             <img
-              src={logoAsset.url}
+              src={logoAsset}
               alt="JUBMUN emblem"
               className="h-9 w-9 shrink-0 object-contain transition-transform duration-300 hover:scale-105"
             />
