@@ -1,8 +1,8 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
-import heroAsset from "@/assets/hero-vintage.jpg.asset.json";
-import logoAsset from "@/assets/jubmun-logo-white.png.asset.json";
+import heroAsset from "@/assets/hero-vintage.jpg";
+import logoAsset from "@/assets/jubmun-logo-white.png";
 import { Navbar } from "@/components/Navbar";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Reveal } from "@/components/Reveal";
@@ -79,7 +79,7 @@ function Hero() {
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden text-secondary">
       <img
-        src={heroAsset.url}
+        src={heroAsset}
         alt="Antique maps, compasses and quills bound in chains"
         className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
@@ -87,7 +87,7 @@ function Hero() {
 
       <div className="mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center px-6 py-12 text-center">
         <img
-          src={logoAsset.url}
+          src={logoAsset}
           alt="JUBMUN emblem"
           width={1024}
           height={1024}
@@ -144,7 +144,7 @@ function Intro() {
           </div>
 
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt="JUBMUN emblem"
             width={1024}
             height={1024}
