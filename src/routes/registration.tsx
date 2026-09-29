@@ -46,11 +46,11 @@ function RegistrationPage() {
       </InfoCard>
       <InfoCard title="Participation fee" delay={60}>
         <p>
-          The participation fee for JUBMUN is 250 per delegate. This fee covers essential conference
-          materials, access to all committee sessions, and the overall conference experience. By
-          maintaining a single, transparent registration fee, JUBMUN ensures fairness for all
-          participants while supporting the high academic standards, organization, and
-          professionalism that define the conference.
+          The participation fee for JUBMUN is 200 per delegate (150 for ISG Jubail students). This
+          fee covers essential conference materials, access to all committee sessions, and the
+          overall conference experience. By maintaining a clear, transparent registration fee,
+          JUBMUN ensures fairness for all participants while supporting the high academic standards,
+          organization, and professionalism that define the conference.
         </p>
       </InfoCard>
       <InfoCard
